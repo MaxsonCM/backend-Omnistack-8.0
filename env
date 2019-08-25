@@ -1,0 +1,4 @@
+PORT = 3333
+HOST = host do banco
+USER = usuario do banco
+PASSWORD = senha do banco
