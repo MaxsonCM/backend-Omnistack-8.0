@@ -2,15 +2,18 @@ const dotenv = require ('dotenv')
 const express = require('express')
 const mongoose = require('mongoose')
 const routes = require('./routes')
+const cors = require('cors')
 
 dotenv.config ()
 
 const server = express()
 
 mongoose.connect('mongodb+srv://' + process.env.USER +':' + process.env.PASSWORD + '@' + process.env.HOST + '?retryWrites=true&w=majority',{
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
 })
 
+server.use(cors())
 server.use(express.json())
 server.use(routes)
 
